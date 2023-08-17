@@ -18,7 +18,7 @@ const Form= ({
       console.log("data :>> ", data);
       e.preventDefault();
       const res = await fetch(
-        `https://chatappli.onrender.com/api/${isSignInPage ? "login" : "register"}`,
+        `https://chatapplication-kgba.onrender.com/api/${isSignInPage ? "login" : "register"}`,
         {
           method: "POST",
           headers: {

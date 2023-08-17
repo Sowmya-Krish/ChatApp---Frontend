@@ -43,7 +43,7 @@ const Dashboard = () => {
     const loggedInUser = JSON.parse(localStorage.getItem("user:detail"));
     const fetchConversations = async () => {
       const res = await fetch(
-        `https://chatappli.onrender.com/api/conversations/${loggedInUser?.id}`,
+        `https://chatapplication-kgba.onrender.com/api/conversations/${loggedInUser?.id}`,
         {
           method: "GET",
           headers: {
@@ -59,12 +59,15 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch(`https://chatappli.onrender.com/api/users/${user?.id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `https://chatapplication-kgba.onrender.com/api/users/${user?.id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const resData = await res.json();
       setUsers(resData);
     };
@@ -73,7 +76,7 @@ const Dashboard = () => {
 
   const fetchMessages = async (conversationId, receiver) => {
     const res = await fetch(
-      `https://chatappli.onrender.com/api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`,
+      `https://chatapplication-kgba.onrender.com/api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`,
       {
         method: "GET",
         headers: {
@@ -93,18 +96,21 @@ const Dashboard = () => {
       message,
       conversationId: messages?.conversationId,
     });
-    const res = await fetch(`https://chatappli.onrender.com/api/message`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        conversationId: messages?.conversationId,
-        senderId: user?.id,
-        message,
-        receiverId: messages?.receiver?.receiverId,
-      }),
-    });
+    const res = await fetch(
+      `https://chatapplication-kgba.onrender.com/api/message`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          conversationId: messages?.conversationId,
+          senderId: user?.id,
+          message,
+          receiverId: messages?.receiver?.receiverId,
+        }),
+      }
+    );
   };
 
   return (
