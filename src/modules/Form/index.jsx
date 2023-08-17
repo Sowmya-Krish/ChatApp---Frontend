@@ -18,7 +18,7 @@ const Form= ({
       console.log("data :>> ", data);
       e.preventDefault();
       const res = await fetch(
-        `http://localhost:8000/api/${isSignInPage ? "login" : "register"}`,
+        `https://chatappli.onrender.com/api/${isSignInPage ? "login" : "register"}`,
         {
           method: "POST",
           headers: {
