@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import backgroundImage from "../../assets/emoji.avif"
 
 const Form= ({
     isSignInPage = true,
@@ -42,6 +43,7 @@ const Form= ({
     };
 
   return (
+    <div className="bg-light h-screen flex items-center justify-center" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
 <div className="bg-light h-screen flex items-center justify-center">
     <div className=" bg-white w-[600px] h-[800px] shadow-lg rounded-lg flex flex-col justify-center items-center">
         <div className=" text-4xl font-extrabold">Welcome {isSignInPage && 'Back'}</div>
@@ -55,9 +57,15 @@ const Form= ({
         <div>{ isSignInPage ? "Didn't have an account?" : "Already have an account?"} <span className="text-primary cursor-pointer underline" onClick={() =>
               navigate(`/users/${isSignInPage ? "sign_up" : "sign_in"}`)
             }>
-          {isSignInPage ? 'sign up' : 'sign in'}</span></div>
+          {isSignInPage ? 'sign up' : 'sign in'}</span>
+          <div className=" w-1/1 mb-2"><p><strong>Sample Credentials</strong></p></div>
+         <div className=" w-1/1 mb-2"><strong>username : admin@chat.com  password : admin1234</strong></div>
+        <div className=" w-1/1 mb-2"><strong>username : sowmya@chat.com  password : sowmya123</strong></div>
+          </div>
+          </div>
         </div>
-        </div>
+</div>
+
         )
 
 }
