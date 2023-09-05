@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Img1 from "../../assets/img1.jpg";
-import tutorialsdev from "../../assets/tutorialsdev.png";
+import tutorialsdev from "../../assets/about.png.jpeg";
 import Input from "../../components/Input";
 import { io } from "socket.io-client";
 
